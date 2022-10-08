@@ -1,5 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Joke } from '../Models/Joke';
+import { Component, OnInit } from '@angular/core';
 import { HttpUtils } from '../Utils/HttpUtils';
 
 @Component({
@@ -8,8 +7,7 @@ import { HttpUtils } from '../Utils/HttpUtils';
   styleUrls: ['./fetch-display-joke.component.scss']
 })
 export class FetchDisplayJokeComponent implements OnInit {
-setup: string = "";
-punchline: string = "";
+joke: string = "";
   constructor() { }
 
   ngOnInit(): void {
@@ -17,11 +15,7 @@ punchline: string = "";
 
   async onClick(): Promise<void> 
   {
-    let jokes: Joke[] = await HttpUtils.getJokes();
-    console.log(jokes);
-    this.setup = jokes[0].setup;
-    this.punchline = jokes[0].punchline;
-
+    this.joke = await HttpUtils.getJoke();
   }
 
 }
