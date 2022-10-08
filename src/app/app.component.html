@@ -1,3 +1,23 @@
-<app-display-gag [executee]="getFact"></app-display-gag>
-<app-bottom-navigation-bar></app-bottom-navigation-bar>
+<app-display-gag
+[visible]="factVisibility"
+[callback]="getFact"
+displayText="Random Fact"
+buttonText="Random Fact">
+</app-display-gag>
+
+<app-display-gag 
+[visible]="jokeVisibility"
+[callback]="getJoke"
+displayText="Random Joke"
+buttonText="Random Joke"></app-display-gag>
+
+<app-display-gag 
+[visible]="excuseVisibility"
+[callback]="getExcuse"
+displayText="Random Excuse"
+buttonText="Random Excuse"></app-display-gag>
+
+<app-bottom-navigation-bar 
+(onCellSelected)="setContent">
+</app-bottom-navigation-bar>
 <router-outlet></router-outlet>

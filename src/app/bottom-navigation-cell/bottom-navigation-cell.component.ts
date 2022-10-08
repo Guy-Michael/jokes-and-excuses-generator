@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Content } from '../content';
+import { ToggleVisibilityService } from '../services/toggle-visibility.service';
 
 @Component({
   selector: 'app-bottom-navigation-cell',
@@ -6,13 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./bottom-navigation-cell.component.scss']
 })
 export class BottomNavigationCellComponent implements OnInit {
-@Input() destinationLink : string = "";
 @Input() iconName : string = "";
 @Input() buttonText : string = "";
+@Input() type : Content = Content.Joke;
 
-  constructor() { }
+@Output() onCellSelected = new EventEmitter<Content>();
 
-  ngOnInit(): void {
+  constructor(private visibilityService: ToggleVisibilityService) { }
+
+  ngOnInit(): void {}
+
+  onClick()
+  {
+    this.visibilityService.contentEmitter.emit(this.type);
   }
 
 }

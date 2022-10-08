@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { Content } from './content';
+import { ToggleVisibilityService } from './services/toggle-visibility.service';
 import { HttpUtils } from './Utils/HttpUtils';
 
 @Component({
@@ -8,7 +10,23 @@ import { HttpUtils } from './Utils/HttpUtils';
 })
 export class AppComponent 
 {
+  jokeVisibility: boolean = false;
+  factVisibility: boolean = false;
+  excuseVisibility: boolean = false;
+
   title = 'Useful-Utilities';
+
+  constructor(private contentEmitter: ToggleVisibilityService) {}
+
+  ngOnInit(): void
+  {
+    this.contentEmitter.contentEmitter
+    .subscribe((content: Content) =>
+    {
+      this.setContent(content);
+    });
+
+  }
 
   async getJoke()
   {
@@ -18,5 +36,44 @@ export class AppComponent
   async getFact()
   {
     return await HttpUtils.getFact();
+  }
+
+  async getExcuse()
+  {
+    return await HttpUtils.getExcuse();
+  }
+
+  setContent(selected: Content) : void
+  {
+
+
+    switch(selected)
+    {
+      case(Content.Joke):
+      {
+        this.jokeVisibility = true;
+        this.factVisibility = false;
+        this.excuseVisibility = false;
+        break;
+      }
+      case(Content.Fact):
+      {
+        this.jokeVisibility = false;
+        this.factVisibility = true;
+        this.excuseVisibility = false;
+        break;
+      }
+      case(Content.Excuse):
+      {
+        this.jokeVisibility = false;
+        this.factVisibility = false;
+        this.excuseVisibility = true;
+        break;
+      }
+    }
+
+    console.log('visibility joke: ' + this.jokeVisibility);
+    console.log('visibility excuse: ' + this.excuseVisibility);
+    console.log('visibility fact: ' + this.factVisibility);
   }
 }

@@ -12,31 +12,12 @@ const headers =
 
 export class HttpUtils
 {
-    static async getJokes(): Promise<Joke[]>
-    {
-        let jokes :Joke[] = [];
-        return httpClient.get<{success:boolean, body: Joke[]}>(SERVER_URL, {headers}).toPromise()
-        .then((data) =>
-        {
-            if(data?.body)
-            {
-                for(let joke of data.body)
-                {
-                    let jokeRes : Joke = {setup: joke.setup, punchline: joke.punchline};
-                    jokes.push(jokeRes);
-                }
-            }
-            return jokes;
-        });
-    }
-
     static async getJoke(): Promise<string>
     {
         const headers = {'Accept': 'application/json'};
         return httpClient.get<{joke: string}>('https://icanhazdadjoke.com/', {headers}).toPromise()
         .then((data) => 
         {
-            console.log(data?.joke);
             return data?.joke ?? '';
         })
     }
@@ -48,5 +29,19 @@ export class HttpUtils
         {
             return data?.text ?? '';
         });
+    }
+
+    static async getExcuse(): Promise<string>
+    {
+        return httpClient.get<{excuse: string}[]>('https://excuser.herokuapp.com/v1/excuse').toPromise()
+        .then((data) =>
+        {
+            if(data)
+            {
+                return data[0]?.excuse ?? '';
+            }
+            
+            return '';
+        })
     }
 }

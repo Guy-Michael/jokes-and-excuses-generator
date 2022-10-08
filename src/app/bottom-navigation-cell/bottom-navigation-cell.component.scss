@@ -1,5 +1,18 @@
+.container
+{
+    border: 2px solid purple;
+    display: grid;
+    grid-template-columns: max-content;
+    grid-template-rows: max-content max-content;
+    grid-template-areas:
+    "icon"
+    "text";
+}
+
+
 .nav-link
 {
+    grid-area: "text";
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,7 +41,8 @@
 
 .nav-icon
 {
-    border: 2px solid black;
+    grid-area: "icon";
+    border: 2px solid rgb(209, 11, 11);
     margin:10px;
     font-size: 18px;
 }

@@ -8,18 +8,17 @@ import { HttpUtils } from '../Utils/HttpUtils';
 })
 export class DisplayGagComponent implements OnInit 
 {
-  @Input() executee: () => Promise<string> = async () => await '';
-  displayText: string = "";
+  @Input() visible: boolean = false;
+  @Input() callback: () => Promise<string> = async () => await '';
+  @Input() contentText: string = '';
+  @Input() buttonText: string = '';
 
   constructor() { }
 
-  ngOnInit(): void 
-  {
-  }
+  ngOnInit(): void { }
 
   async onClick(): Promise<void> 
   {
-    console.log("on click");
-    this.displayText = await this.executee();
+    this.contentText = await this.callback();
   }
 }

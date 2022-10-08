@@ -1,5 +1,5 @@
-<div>
-    <p>{{displayText}}</p>
+<div *ngIf="visible">
+    <p>{{contentText}}</p>
     
-    <button (click)="onClick()">Random Joke</button>
+    <button (click)="onClick()">{{buttonText}}</button>
 </div>

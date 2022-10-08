@@ -1,16 +1,23 @@
 <nav class="nav">
     <app-bottom-navigation-cell
     class="nav-link"
-    destinationLink='#'
-    destinationName="temp"
     iconName="destination"
     buttonText="Dad Jokes"
+    [type]="types.Joke"
+    (onCellSelected)="onClick"
     ></app-bottom-navigation-cell>
     
     <app-bottom-navigation-cell 
-    destinationLink='#'
-    destinationName="temp"
+    iconName="destination"
+    buttonText="Facts"
+    [type] = types.Fact
+    (onCellSelected)="onClick"
+    ></app-bottom-navigation-cell>
+    
+    <app-bottom-navigation-cell 
     iconName="destination"
     buttonText="Excuses"
+    [type]="types.Excuse"
+    (onCellSelected)="onClick"
     ></app-bottom-navigation-cell>
 </nav>
