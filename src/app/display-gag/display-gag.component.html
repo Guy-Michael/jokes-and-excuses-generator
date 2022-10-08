@@ -1,5 +1,9 @@
-<div *ngIf="visible">
-    <p>{{contentText}}</p>
+<!-- <div *ngIf="visible"> -->
+<!-- <span> -->
+    <div>
+        <p *ngIf="visible">{{contentText}}</p>
+    </div>
     
-    <button (click)="onClick()">{{buttonText}}</button>
-</div>
+    <button *ngIf="visible" (click)="onClick()">{{buttonText}}</button>
+<!-- </span> -->
+<!-- </div> -->

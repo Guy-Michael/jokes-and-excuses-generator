@@ -10,7 +10,7 @@ import { HttpUtils } from './Utils/HttpUtils';
 })
 export class AppComponent 
 {
-  jokeVisibility: boolean = false;
+  jokeVisibility: boolean = true;
   factVisibility: boolean = false;
   excuseVisibility: boolean = false;
 

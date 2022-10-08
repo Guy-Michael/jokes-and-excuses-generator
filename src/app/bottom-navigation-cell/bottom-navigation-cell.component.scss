@@ -1,48 +1,39 @@
 .container
 {
-    border: 2px solid purple;
-    display: grid;
-    grid-template-columns: max-content;
-    grid-template-rows: max-content max-content;
-    grid-template-areas:
-    "icon"
-    "text";
+    border: 1px solid black;
+    // display: grid;
+    // grid-template-columns: min-content;
+    // grid-template-rows:  auto auto;
+    // grid-template-areas:
+    // "icon"
+    // "text";
 }
 
 
 .nav-link
 {
-    grid-area: "text";
+    // grid-area: "text";
+    padding: 10px 15px 10px 15px;
+    font-size: 20px;
+    background-color: green;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    min-width: 50px;
-    overflow: hidden;
-    white-space: nowrap; 
-    font-family: sans-serif;
-    font-size: 13px;
-    color: grey;
-    text-decoration: none;
+    // justify-content: center;
+    // flex-grow: 1;
+    // min-width: 20px;
+    // overflow: hidden;
+    // white-space: nowrap; 
+    // font-family: sans-serif;
+    // font-size: 13px;
+    // text-decoration: none;
     -webkit-tap-highlight-color: transparent;
-    transition: background-color 0.1s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .nav-link:hover
 {
-    background-color: #eeeeee;
-}
-
-.nav-link-active
-{
-    color: #009578;
-}
-
-.nav-icon
-{
-    grid-area: "icon";
-    border: 2px solid rgb(209, 11, 11);
-    margin:10px;
-    font-size: 18px;
+    
+    background-color: greenyellow;
 }
