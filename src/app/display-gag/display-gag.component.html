@@ -1,5 +1,6 @@
 <div>
-    <p *ngIf="visible">{{contentText}}</p>
+    <p *ngIf="visible" [innerHTML]="contentText"></p>
+    <!-- <p *ngIf="visible">{{contentText}}</p> -->
 </div>
 
 <button *ngIf="visible" (click)="onClick()">{{buttonText}}</button>

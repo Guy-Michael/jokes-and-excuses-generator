@@ -21,6 +21,12 @@ buttonText="Random Joke"></app-display-gag>
 displayText="Random Excuse"
 buttonText="Random Excuse"></app-display-gag>
 
+<app-display-gag 
+[visible]="sonyaVisibility"
+[callback]="getSonya"
+displayText="Random Sonya"
+buttonText="Random Sonya"></app-display-gag>
+
 <app-bottom-navigation-bar 
 (onCellSelected)="setContent">
 </app-bottom-navigation-bar>

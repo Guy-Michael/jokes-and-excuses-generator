@@ -2,5 +2,6 @@ export enum Content
 {
     Joke,
     Fact,
-    Excuse
+    Excuse,
+    Sonya
 }
